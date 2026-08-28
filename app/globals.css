@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/* Light is the default. Dark restores the near-black terminal palette. */
+:root {
+  --background: #ffffff;
+  --foreground: #111113;
+  --muted: #6f6f76;
+  --faint: #a1a1a8;
+  --line: #e6e6e6;
+  --hairline: #f0f0f0;
+  --subtle: #fafafa;
+  --accent: #16a34a;
+}
+
+:root[data-theme="dark"] {
+  --background: #050505;
+  --foreground: #fafafa;
+  --muted: #8b8b93;
+  --faint: #52525b;
+  --line: #1e1e21;
+  --hairline: #151517;
+  --subtle: #0b0b0c;
+  --accent: #22c55e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-hairline: var(--hairline);
+  --color-subtle: var(--subtle);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
+  color: var(--foreground);
+}
+
+/* Machine-readable label: mono, uppercase, widely tracked */
+.label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
