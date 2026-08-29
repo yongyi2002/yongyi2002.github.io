@@ -99,11 +99,11 @@ export const profile = {
     },
     {
       group: "Computation",
-      items: ["Python (NumPy, Pandas)", "Scikit-Learn", "Next.js / TypeScript", "Modal / Distributed GPU"],
+      items: ["Python (NumPy, Pandas)", "Next.js / TypeScript"],
     },
     {
       group: "Spatial Computing",
-      items: ["Rhino / Grasshopper", "Shape Grammars", "C# Scripting", "Structural Optimisation"],
+      items: ["Rhino / Grasshopper", "Shape Grammars", "Structural Optimisation"],
     },
     {
       group: "Robotics & Fabrication",
