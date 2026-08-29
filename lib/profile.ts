@@ -4,15 +4,12 @@
 export const profile = {
   name: "Yongyi Xiong",
 
-  /**
-   * The opening statement. First line is set in full contrast, the rest in
-   * muted grey — so the page leads with what you do, not just your name.
-   * TODO: rewrite in your own words.
-   */
-  statement: [
-    "Computational design × machine learning.",
-    "Robotic fabrication, spatial reasoning, digital heritage.",
-  ],
+  /** Browser tab and search-result title. */
+  title: "Computational Design, AI Agents & Machine Learning",
+
+  /** Search-result summary. Keep it to what you actually work on. */
+  seoDescription:
+    "Computational designer and AI engineer. Agent development, human–agent interaction, vision-language models, robotic fabrication and urban perception.",
 
   /** Short self-description, shown under the name in the sidebar. */
   role: ["Computational Designer,", "AI Engineer &", "Creative Technologist."],

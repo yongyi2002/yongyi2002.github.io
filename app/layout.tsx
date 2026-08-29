@@ -11,10 +11,10 @@ const SITE_NAME = profile.name;
 export const metadata: Metadata = {
   metadataBase: new URL("https://yongyixiong.com"),
   title: {
-    default: `${SITE_NAME} — Computational Design & Machine Learning`,
+    default: `${SITE_NAME} — ${profile.title}`,
     template: `%s — ${SITE_NAME}`,
   },
-  description: profile.statement.join(" "),
+  description: profile.seoDescription,
 };
 
 /**
