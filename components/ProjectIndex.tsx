@@ -93,7 +93,7 @@ export function ProjectIndex({ projects, startIndex = 1 }: Props) {
                         src={project.cover.src}
                         poster={project.cover.poster}
                         label={`${project.title} — looping clip`}
-                        className="size-full object-cover opacity-80 grayscale transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:opacity-100 group-hover:grayscale-0"
+                        className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                       />
                     ) : project.hero ? (
                       <Image
@@ -101,11 +101,24 @@ export function ProjectIndex({ projects, startIndex = 1 }: Props) {
                         alt={project.title}
                         fill
                         sizes="(max-width: 768px) 100vw, 60vw"
-                        className="object-cover opacity-80 grayscale transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:opacity-100 group-hover:grayscale-0"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                       />
                     ) : (
                       <PaperCover project={project} />
                     )}
+
+                    {/* viewfinder readout, revealed on hover */}
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-3 opacity-0 transition-opacity duration-500 group-hover:opacity-100 sm:p-4"
+                    >
+                      <span className="label translate-y-1 bg-background/85 px-2 py-1 text-accent backdrop-blur-sm transition-transform duration-500 group-hover:translate-y-0">
+                        ▸ Open project
+                      </span>
+                      <span className="label hidden translate-y-1 bg-background/85 px-2 py-1 text-faint backdrop-blur-sm transition-transform duration-500 group-hover:translate-y-0 sm:inline-block">
+                        {project.domains[0]}
+                      </span>
+                    </div>
                   </div>
                 </Bracketed>
 
