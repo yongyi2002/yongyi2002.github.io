@@ -35,12 +35,28 @@ export function LoopingCover({ src, poster, label, className }: Props) {
 
     play();
 
+    // Autoplay is refused while the tab is in the background, so try again when
+    // the page becomes visible — otherwise a link opened in a background tab
+    // shows a frozen poster once the reader switches to it.
+    const onVisible = () => {
+      if (document.visibilityState === "visible") play();
+    };
+    document.addEventListener("visibilitychange", onVisible);
+
+    // And once more when the first frames are actually decodable.
+    video.addEventListener("loadeddata", play);
+
     const observer = new IntersectionObserver(
       ([entry]) => (entry.isIntersecting ? play() : video.pause()),
       { threshold: 0.2 },
     );
     observer.observe(video);
-    return () => observer.disconnect();
+
+    return () => {
+      document.removeEventListener("visibilitychange", onVisible);
+      video.removeEventListener("loadeddata", play);
+      observer.disconnect();
+    };
   }, []);
 
   return (
