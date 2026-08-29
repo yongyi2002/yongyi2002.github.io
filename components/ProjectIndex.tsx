@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { Bracketed } from "@/components/Bracketed";
+import { Frame } from "@/components/Frame";
 import { LoopingCover } from "@/components/LoopingCover";
 import { PaperCover } from "@/components/PaperCover";
 import { DOMAINS, type Project } from "@/lib/projects";
@@ -86,7 +86,7 @@ export function ProjectIndex({ projects, startIndex = 1 }: Props) {
                   </div>
                 </div>
 
-                <Bracketed>
+                <Frame>
                   <div className="relative aspect-[16/9]">
                     {project.cover ? (
                       <LoopingCover
@@ -120,7 +120,7 @@ export function ProjectIndex({ projects, startIndex = 1 }: Props) {
                       </span>
                     </div>
                   </div>
-                </Bracketed>
+                </Frame>
 
                 <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted">
                   {project.subtitle}
