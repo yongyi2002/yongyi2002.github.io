@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ParticleTitle } from "@/components/ParticleTitle";
 import { Timeline } from "@/components/Timeline";
 import { SectionNav, type Section } from "@/components/SectionNav";
 import { ProjectIndex } from "@/components/ProjectIndex";
@@ -10,6 +11,9 @@ import { publications } from "@/lib/publications";
 import { projects } from "@/lib/projects";
 
 const NOW = new Date().toISOString().slice(0, 7);
+
+/** The heading, one line per array entry. A trailing full stop takes the accent. */
+const TITLE_LINES = ["Yongyi", "Xiong."];
 
 const SECTIONS: Section[] = [
   { id: "publications", label: "Publications", count: publications.length },
@@ -29,11 +33,7 @@ export default function Home() {
             <ThemeToggle />
           </div>
 
-          <h1 className="text-5xl font-bold leading-[0.9] tracking-tighter lg:text-6xl">
-            Yongyi
-            <br />
-            Xiong<span className="text-accent">.</span>
-          </h1>
+          <ParticleTitle lines={TITLE_LINES} />
 
           <div className="mt-8 border-l border-line pl-4 text-sm leading-relaxed">
             {profile.role.map((line) => (
