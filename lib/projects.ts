@@ -70,6 +70,13 @@ export type Project = {
   cover?: { src: string; poster: string };
   /** Cover photograph. Omit for papers that only have a typographic cover. */
   hero?: string;
+  /**
+   * Still cover for the index, when `hero` does not make one. Some heroes are
+   * documentation boards — right for the top of a project page, unreadable
+   * shrunk into a card — so those projects point the index at a single frame
+   * cut from the board instead. Falls back to `hero`.
+   */
+  coverImage?: string;
   gallery: GalleryImage[];
 };
 
@@ -295,35 +302,35 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "computed-cake",
-    domains: ["Digital Fabrication", "Computational Design"],
-    kind: "Studio Project",
+    slug: "robotic-bamboo-weaving",
+    domains: ["Robotic Fabrication", "Digital Fabrication"],
+    kind: "Workshop",
     category: "selected",
-    title: "Computed Cake",
-    subtitle: "3D Printing Cake Mould",
+    title: "Robotic Bamboo Weaving",
+    subtitle: "Human-Robot Collaborated Fabrication",
     year: "2024",
-    blurb: "A parametric Chinese interlocking pattern, 3D-printed into a mould and baked into a mousse cake.",
+    blurb: "A 3 m sphere bamboo pavilion woven by robotic arms with a custom end-effector, assisted by hand.",
     meta: {
-      type: "Individual work · Studio (TU Graz)",
-      instructor: "Milena Stavric",
+      type: "Workshop (DigitalFUTURES 2024)",
+      instructor: "Philip F. Yuan & Yige Liu",
+      role: "Construction group member (with 15 participants) · material processing · form optimization · assisting robotic weaving",
     },
-    tags: [
-      "Parametric Design",
-      "Digital Fabrication",
-      "3D Printing",
-      "Silicone Moulding",
-      "Interlocking Pattern",
-    ],
+    tags: ["Robotic Fabrication", "Bamboo", "Pavilion", "Custom End-effector", "Human–Robot Collaboration"],
     description: [
-      "Rethinking new building materials starts with using local products and combining them in unexpected ways. Can we think about building materials in the context of our daily activities and manufacturing processes? In this project I learned from cooking and combined it with parametric design and digital fabrication.",
-      "For the design, the inspiration came from a traditional Chinese interlocking pattern, which was remapped, reconfigured and reformed. A positive cake mould and a negative silicone mould were produced: the positive mould is 3D-printed in PLA with four side walls to stop the edible silicone from leaking; the negative silicone mould is cast against it and baked for at least two hours before use.",
-      "The final cake was a yogurt mousse cake with an orange jelly and cookie layer inside.",
+      "How robots can cooperate with people in fabrication is an important topic today. In this workshop we worked with robotic arms to collaboratively build a three-metre-tall spherical bamboo pavilion. Humans prepared the bamboo material and built the steel base; the robotic arm positioned each bamboo raft and wove it into a spherical structure with human assistance.",
+      "The robotic arms ensure high accuracy and consistency in the weaving process, enabling intricate patterns that are hard to achieve manually. The head of the robotic arm was specially designed to pull the bamboo raft.",
     ],
-    hero: m("computed-cake", "hero.jpg"),
+    video: {
+      src: m("robotic-bamboo-weaving", "video.mp4"),
+      poster: m("robotic-bamboo-weaving", "video-poster.jpg"),
+      caption: "Robotic arms weaving the bamboo rafts into the spherical pavilion",
+    },
+    hero: m("robotic-bamboo-weaving", "hero.jpg"),
+    coverImage: m("robotic-bamboo-weaving", "cover.jpg"),
     gallery: [
-      { src: m("computed-cake", "01.jpg"), caption: "The finished yogurt mousse cake, cut to show the layers" },
-      { src: m("computed-cake", "02.jpg"), caption: "Pattern generation and the 3D-printed mould" },
-      { src: m("computed-cake", "03.jpg"), caption: "Cake-making process" },
+      { src: m("robotic-bamboo-weaving", "01.jpg"), caption: "Custom mechanical head pulling a bamboo raft" },
+      { src: m("robotic-bamboo-weaving", "02.jpg"), caption: "Robotic weaving pipeline, form evolution and the mechanical head" },
+      { src: m("robotic-bamboo-weaving", "03.jpg"), caption: "On-site construction and robotic arm weaving" },
     ],
   },
   {
@@ -384,51 +391,12 @@ export const projects: Project[] = [
       poster: m("monument-to-loneliness", "video-poster.jpg"),
       caption: "CNC-milled pieces assembled 1:1 on the TU Graz campus",
     },
-    cover: {
-      src: m("monument-to-loneliness", "cover.mp4"),
-      poster: m("monument-to-loneliness", "cover-poster.jpg"),
-    },
     hero: m("monument-to-loneliness", "hero.jpg"),
     gallery: [
       { src: m("monument-to-loneliness", "01.jpg"), caption: "The built vault arch on site" },
       { src: m("monument-to-loneliness", "02.jpg"), caption: "Interlocking joints, 1:30 prototype and CNC milling pieces" },
       { src: m("monument-to-loneliness", "03.jpg"), caption: "Digital modeling in Rhino / Grasshopper and structural optimization" },
       { src: m("monument-to-loneliness", "04.jpg"), caption: "CNC milling, polishing and on-site construction" },
-    ],
-  },
-  {
-    slug: "robotic-bamboo-weaving",
-    domains: ["Robotic Fabrication", "Digital Fabrication"],
-    kind: "Workshop",
-    category: "selected",
-    title: "Robotic Bamboo Weaving",
-    subtitle: "Human-Robot Collaborated Fabrication",
-    year: "2024",
-    blurb: "A 3 m sphere bamboo pavilion woven by robotic arms with a custom end-effector, assisted by hand.",
-    meta: {
-      type: "Workshop (DigitalFUTURES 2024)",
-      instructor: "Philip F. Yuan & Yige Liu",
-      role: "Construction group member (with 15 participants) · material processing · form optimization · assisting robotic weaving",
-    },
-    tags: ["Robotic Fabrication", "Bamboo", "Pavilion", "Custom End-effector", "Human–Robot Collaboration"],
-    description: [
-      "How robots can cooperate with people in fabrication is an important topic today. In this workshop we worked with robotic arms to collaboratively build a three-metre-tall spherical bamboo pavilion. Humans prepared the bamboo material and built the steel base; the robotic arm positioned each bamboo raft and wove it into a spherical structure with human assistance.",
-      "The robotic arms ensure high accuracy and consistency in the weaving process, enabling intricate patterns that are hard to achieve manually. The head of the robotic arm was specially designed to pull the bamboo raft.",
-    ],
-    video: {
-      src: m("robotic-bamboo-weaving", "video.mp4"),
-      poster: m("robotic-bamboo-weaving", "video-poster.jpg"),
-      caption: "Robotic arms weaving the bamboo rafts into the spherical pavilion",
-    },
-    cover: {
-      src: m("robotic-bamboo-weaving", "cover.mp4"),
-      poster: m("robotic-bamboo-weaving", "cover-poster.jpg"),
-    },
-    hero: m("robotic-bamboo-weaving", "hero.jpg"),
-    gallery: [
-      { src: m("robotic-bamboo-weaving", "01.jpg"), caption: "Custom mechanical head pulling a bamboo raft" },
-      { src: m("robotic-bamboo-weaving", "02.jpg"), caption: "Robotic weaving pipeline, form evolution and the mechanical head" },
-      { src: m("robotic-bamboo-weaving", "03.jpg"), caption: "On-site construction and robotic arm weaving" },
     ],
   },
   {
@@ -452,6 +420,7 @@ export const projects: Project[] = [
     ],
     note: "Patterns were generated individually by members of the group; the individual attributions are marked on the original sheets.",
     hero: m("shape-grammar", "hero.jpg"),
+    coverImage: m("shape-grammar", "cover.jpg"),
     gallery: [
       { src: m("shape-grammar", "01.jpg"), caption: "Patterns 3 and 4 — source plates and their transformation rule chains" },
     ],
@@ -478,6 +447,39 @@ export const projects: Project[] = [
     hero: m("xiongan-wings", "hero.jpg"),
     gallery: [
       { src: m("xiongan-wings", "01.jpg"), caption: "Grasshopper model of the A section and the resulting facade blocks" },
+    ],
+  },
+  {
+    slug: "computed-cake",
+    domains: ["Digital Fabrication", "Computational Design"],
+    kind: "Studio Project",
+    category: "selected",
+    title: "Computed Cake",
+    subtitle: "3D Printing Cake Mould",
+    year: "2024",
+    blurb: "A parametric Chinese interlocking pattern, 3D-printed into a mould and baked into a mousse cake.",
+    meta: {
+      type: "Individual work · Studio (TU Graz)",
+      instructor: "Milena Stavric",
+    },
+    tags: [
+      "Parametric Design",
+      "Digital Fabrication",
+      "3D Printing",
+      "Silicone Moulding",
+      "Interlocking Pattern",
+    ],
+    description: [
+      "Rethinking new building materials starts with using local products and combining them in unexpected ways. Can we think about building materials in the context of our daily activities and manufacturing processes? In this project I learned from cooking and combined it with parametric design and digital fabrication.",
+      "For the design, the inspiration came from a traditional Chinese interlocking pattern, which was remapped, reconfigured and reformed. A positive cake mould and a negative silicone mould were produced: the positive mould is 3D-printed in PLA with four side walls to stop the edible silicone from leaking; the negative silicone mould is cast against it and baked for at least two hours before use.",
+      "The final cake was a yogurt mousse cake with an orange jelly and cookie layer inside.",
+    ],
+    hero: m("computed-cake", "hero.jpg"),
+    coverImage: m("computed-cake", "cover.jpg"),
+    gallery: [
+      { src: m("computed-cake", "01.jpg"), caption: "The finished yogurt mousse cake, cut to show the layers" },
+      { src: m("computed-cake", "02.jpg"), caption: "Pattern generation and the 3D-printed mould" },
+      { src: m("computed-cake", "03.jpg"), caption: "Cake-making process" },
     ],
   },
 ];

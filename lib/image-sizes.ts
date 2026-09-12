@@ -14,9 +14,13 @@ export const imageSizes: Record<string, { width: number; height: number }> = {
     "height": 1467,
     "width": 2200
   },
+  "/media/computed-cake/cover.jpg": {
+    "height": 1222,
+    "width": 1455
+  },
   "/media/computed-cake/hero.jpg": {
-    "height": 1333,
-    "width": 2000
+    "height": 1222,
+    "width": 1890
   },
   "/media/dynamic-facade/01.jpg": {
     "height": 1650,
@@ -27,8 +31,8 @@ export const imageSizes: Record<string, { width: number; height: number }> = {
     "width": 2200
   },
   "/media/dynamic-facade/hero.jpg": {
-    "height": 1333,
-    "width": 2000
+    "height": 1223,
+    "width": 1890
   },
   "/media/dynamic-facade/video-poster.jpg": {
     "height": 720,
@@ -67,8 +71,8 @@ export const imageSizes: Record<string, { width: number; height: number }> = {
     "width": 1280
   },
   "/media/monument-to-loneliness/hero.jpg": {
-    "height": 1333,
-    "width": 2000
+    "height": 1223,
+    "width": 1891
   },
   "/media/monument-to-loneliness/video-poster.jpg": {
     "height": 720,
@@ -91,8 +95,8 @@ export const imageSizes: Record<string, { width: number; height: number }> = {
     "width": 2200
   },
   "/media/placing-nature/hero.jpg": {
-    "height": 1333,
-    "width": 2000
+    "height": 1223,
+    "width": 1890
   },
   "/media/placing-nature/video-poster.jpg": {
     "height": 720,
@@ -114,9 +118,13 @@ export const imageSizes: Record<string, { width: number; height: number }> = {
     "height": 720,
     "width": 1280
   },
+  "/media/robotic-bamboo-weaving/cover.jpg": {
+    "height": 697,
+    "width": 1239
+  },
   "/media/robotic-bamboo-weaving/hero.jpg": {
-    "height": 1333,
-    "width": 2000
+    "height": 1237,
+    "width": 1889
   },
   "/media/robotic-bamboo-weaving/video-poster.jpg": {
     "height": 720,
@@ -139,12 +147,16 @@ export const imageSizes: Record<string, { width: number; height: number }> = {
     "width": 2200
   },
   "/media/segmented-image/hero.jpg": {
-    "height": 1333,
-    "width": 2000
+    "height": 1223,
+    "width": 1890
   },
   "/media/shape-grammar/01.jpg": {
     "height": 1467,
     "width": 2200
+  },
+  "/media/shape-grammar/cover.jpg": {
+    "height": 1069,
+    "width": 1900
   },
   "/media/shape-grammar/hero.jpg": {
     "height": 1350,
@@ -176,7 +188,7 @@ export const imageSizes: Record<string, { width: number; height: number }> = {
   },
   "/media/xiongan-wings/hero.jpg": {
     "height": 830,
-    "width": 1245
+    "width": 1238
   }
 };
 

@@ -61,6 +61,53 @@ body {
   text-transform: uppercase;
 }
 
+/* Project covers. The selected state is four viewfinder marks closing in on
+   the picture and holding — the language the rest of the card already speaks,
+   where the hover readout is styled as an instrument. They travel in from well
+   outside, which is what makes it read as a frame arriving rather than a frame
+   appearing. */
+.cover-mark {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 0 solid var(--accent);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 300ms ease-out,
+    top 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    right 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    bottom 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    left 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cover-mark--tl { top: -20px; left: -20px; border-width: 1px 0 0 1px; }
+.cover-mark--tr { top: -20px; right: -20px; border-width: 1px 1px 0 0; }
+.cover-mark--bl { bottom: -20px; left: -20px; border-width: 0 0 1px 1px; }
+.cover-mark--br { bottom: -20px; right: -20px; border-width: 0 1px 1px 0; }
+
+.group:hover .cover-mark { opacity: 1; }
+.group:hover .cover-mark--tl { top: -7px; left: -7px; }
+.group:hover .cover-mark--tr { top: -7px; right: -7px; }
+.group:hover .cover-mark--bl { bottom: -7px; left: -7px; }
+.group:hover .cover-mark--br { bottom: -7px; right: -7px; }
+
+/* Several covers are documentation boards laid out on a white ground. On the
+   light theme they sit on paper and behave; on the dark one that white arrives
+   as a slab of glare against a near-black page, louder than anything else on
+   the screen. Resting them a little below full brightness settles them into the
+   page, and returning them to full on hover turns the correction into part of
+   the answer — the cover lights up under the cursor. Photographs are barely
+   touched at this depth, so one rule serves both kinds of cover. */
+:root[data-theme="dark"] .cover-plate {
+  filter: brightness(0.82);
+  transition: filter 500ms ease-out;
+}
+
+:root[data-theme="dark"] .group:hover .cover-plate {
+  filter: brightness(1);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {

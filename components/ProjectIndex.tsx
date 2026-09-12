@@ -59,6 +59,10 @@ export function ProjectIndex({ projects, startIndex = 1 }: Props) {
             projects.findIndex((p) => p.slug === project.slug) + startIndex,
           ).padStart(3, "0");
 
+          // A project may point the card at a frame cut from its hero when the
+          // hero itself is a board that does not shrink well.
+          const cover = project.coverImage ?? project.hero;
+
           return (
             <article
               key={project.slug}
@@ -95,9 +99,9 @@ export function ProjectIndex({ projects, startIndex = 1 }: Props) {
                         label={`${project.title} — looping clip`}
                         className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                       />
-                    ) : project.hero ? (
+                    ) : cover ? (
                       <Image
-                        src={project.hero}
+                        src={cover}
                         alt={project.title}
                         fill
                         sizes="(max-width: 768px) 100vw, 60vw"
