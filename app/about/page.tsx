@@ -38,7 +38,7 @@ export default function AboutPage() {
         </h2>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
           Every selected project against the domains it works in. Rows are ordered by
-          the domains they span, so the reach from machine learning through
+          the domains they span, so the reach from AI and machine learning through
           fabrication to computational design reads down the table.
         </p>
         <DomainMatrix />

@@ -7,7 +7,7 @@ export type ProjectCategory = "selected" | "other";
 
 /** Filter buckets on the index. A project may sit in more than one. */
 export const DOMAINS = [
-  "Machine Learning",
+  "AI/ML",
   "Robotic Fabrication",
   "Digital Fabrication",
   "Computational Design",
@@ -86,7 +86,7 @@ export const projects: Project[] = [
   {
     slug: "janusmm",
     category: "selected",
-    domains: ["Machine Learning"],
+    domains: ["AI/ML"],
     kind: "Research Project",
     title: "JanusMM",
     subtitle: "A Benchmark for Self-Deprecation Understanding in Real-World Multimodal Conversations",
@@ -152,7 +152,7 @@ export const projects: Project[] = [
   },
   {
     slug: "spatial-cue-fine-tuning",
-    domains: ["Machine Learning"],
+    domains: ["AI/ML"],
     kind: "Research Project",
     category: "selected",
     title: "Spatial Cue Fine-Tuning",
@@ -226,7 +226,7 @@ export const projects: Project[] = [
   },
   {
     slug: "placing-nature",
-    domains: ["Machine Learning", "Robotic Fabrication"],
+    domains: ["AI/ML", "Robotic Fabrication"],
     kind: "Research Project",
     category: "selected",
     title: "Placing Nature",
@@ -266,7 +266,7 @@ export const projects: Project[] = [
   },
   {
     slug: "segmented-image",
-    domains: ["Machine Learning", "Computational Design"],
+    domains: ["AI/ML", "Computational Design"],
     kind: "Research Project",
     category: "selected",
     title: "Segmented Image",
