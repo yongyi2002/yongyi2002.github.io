@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { profile } from "@/lib/profile";
 import { PageNav } from "@/components/PageNav";
+import { DomainMatrix } from "@/components/DomainMatrix";
 
 export const metadata: Metadata = {
   title: "About",
@@ -29,6 +30,18 @@ export default function AboutPage() {
             {paragraph}
           </p>
         ))}
+      </section>
+
+      <section className="border-t border-line py-12">
+        <h2 className="font-mono text-xs uppercase tracking-wide text-muted">
+          Domain Map
+        </h2>
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+          Every selected project against the domains it works in. Rows are ordered by
+          the domains they span, so the reach from machine learning through
+          fabrication to computational design reads down the table.
+        </p>
+        <DomainMatrix />
       </section>
 
       {profile.education.length > 0 && (
