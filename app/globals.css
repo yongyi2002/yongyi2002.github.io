@@ -61,6 +61,13 @@ body {
   text-transform: uppercase;
 }
 
+/* Tailwind v4's preflight leaves buttons on the default cursor. Every button on
+   this site is a control, and the filter row in particular reads as a caption
+   until the cursor says otherwise. */
+button:not(:disabled) {
+  cursor: pointer;
+}
+
 /* Project covers. The selected state is four viewfinder marks closing in on
    the picture and holding — the language the rest of the card already speaks,
    where the hover readout is styled as an instrument. They travel in from well

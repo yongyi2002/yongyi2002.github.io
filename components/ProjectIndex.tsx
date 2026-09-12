@@ -10,6 +10,19 @@ import { DOMAINS, type Project } from "@/lib/projects";
 
 type Props = { projects: Project[]; startIndex?: number };
 
+/**
+ * Filters wear the same control language as the publication links above them: a
+ * hairline box that takes the accent when you reach for it. Left as bare text
+ * they were indistinguishable from the page's many non-interactive labels, and
+ * nothing said they could be pressed.
+ *
+ * The one in force is filled rather than merely coloured, so the selected state
+ * reads as a state and not as a louder hover.
+ */
+const FILTER = "label border px-3 py-1.5 transition-colors";
+const FILTER_REST = "border-line text-faint hover:border-accent hover:text-accent";
+const FILTER_ON = "border-accent bg-accent/10 text-accent";
+
 export function ProjectIndex({ projects, startIndex = 1 }: Props) {
   const [active, setActive] = useState<string>("All");
 
@@ -33,7 +46,7 @@ export function ProjectIndex({ projects, startIndex = 1 }: Props) {
 
   return (
     <>
-      <div className="flex flex-wrap gap-x-5 gap-y-2 border-b border-line px-8 py-5 md:px-16">
+      <div className="flex flex-wrap gap-2 border-b border-line px-8 py-5 md:px-16">
         {filters.map((filter) => {
           const isActive = filter === active;
           return (
@@ -42,9 +55,7 @@ export function ProjectIndex({ projects, startIndex = 1 }: Props) {
               type="button"
               onClick={() => setActive(filter)}
               aria-pressed={isActive}
-              className={`label transition-colors ${
-                isActive ? "text-accent" : "text-faint hover:text-foreground"
-              }`}
+              className={`${FILTER} ${isActive ? FILTER_ON : FILTER_REST}`}
             >
               {filter}
               <sup className="ml-1 tracking-normal">{counts.get(filter)}</sup>
