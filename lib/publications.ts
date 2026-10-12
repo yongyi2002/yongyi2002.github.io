@@ -7,8 +7,18 @@ export type Author = {
 export type Publication = {
   title: string;
   subtitle?: string;
-  /** Full author list, in order. The site owner's name is emphasised on render. */
+  /**
+   * The authors to print, in order. For a paper with hundreds of names this is
+   * only the leading few; set `totalAuthors` and the rest are counted instead.
+   * The site owner's name is emphasised on render.
+   */
   authors: Author[];
+  /**
+   * Size of the full author list, when `authors` above is only its head. Past
+   * the lead authors these lists run alphabetically, so a position in them says
+   * nothing about contribution and is deliberately never shown.
+   */
+  totalAuthors?: number;
   venue: string;
   year: string;
   /** Canonical landing page for the paper */
@@ -16,6 +26,10 @@ export type Publication = {
   /** Direct PDF link — external, or a file served from /public/papers */
   pdf?: string;
   doi?: string;
+  /** Source repository */
+  code?: string;
+  /** Released dataset or benchmark */
+  dataset?: string;
   /** Slug of the related project page, if there is one */
   project?: string;
   status?: string;
@@ -48,6 +62,20 @@ export const publications: Publication[] = [
     doi: "10.18653/v1/2026.acl-long.1116",
     project: "janusmm",
     status: "Long paper",
+  },
+  {
+    title: "Agents' Last Exam",
+    subtitle:
+      "A benchmark of long-horizon, economically valuable real-world tasks for computer-use agents",
+    authors: [a("Yiyou Sun"), a("Xinyang Han"), a("Weichen Zhang")],
+    totalAuthors: 262,
+    venue: "NeurIPS 2026 Evaluations and Datasets Track",
+    year: "2026",
+    url: "https://arxiv.org/abs/2606.05405",
+    pdf: "https://arxiv.org/pdf/2606.05405",
+    code: "https://github.com/rdi-berkeley/agents-last-exam",
+    dataset: "https://huggingface.co/datasets/agents-last-exam/agents-last-exam",
+    status: "Poster",
   },
   {
     title: "Placing Nature",

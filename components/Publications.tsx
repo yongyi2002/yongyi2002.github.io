@@ -2,7 +2,19 @@ import Link from "next/link";
 import { profile } from "@/lib/profile";
 import { publications, type Author } from "@/lib/publications";
 
-function Authors({ authors }: { authors: Author[] }) {
+/**
+ * A paper with hundreds of authors is printed by its leading names and a count.
+ * Setting out all of them would bury the title and the venue, which are what
+ * this list is for, and the complete roll is one click away on the paper
+ * itself. Past the leads these lists run alphabetically, so no position is
+ * given: a number there would read as a ranking of contribution and is not one.
+ *
+ * The owner is named either way. Locating them is the one job this line has.
+ */
+function Authors({ authors, total }: { authors: Author[]; total?: number }) {
+  const uncounted = total && total > authors.length ? total - authors.length : 0;
+  const ownerListed = authors.some((author) => author.name === profile.name);
+
   return (
     <p className="mt-2 text-sm text-muted">
       {authors.map((author, i) => (
@@ -18,6 +30,17 @@ function Authors({ authors }: { authors: Author[] }) {
           {i < authors.length - 1 && ", "}
         </span>
       ))}
+      {uncounted > 0 && (
+        <>
+          {` and ${uncounted} others`}
+          {!ownerListed && (
+            <>
+              {", including "}
+              <span className="font-medium text-foreground">{profile.name}</span>
+            </>
+          )}
+        </>
+      )}
     </p>
   );
 }
@@ -57,7 +80,7 @@ export function Publications() {
                 )}
               </h3>
 
-              <Authors authors={p.authors} />
+              <Authors authors={p.authors} total={p.totalAuthors} />
 
               {firstAuthors > 0 && (
                 <p className="mt-1 text-xs text-muted">
@@ -90,6 +113,16 @@ export function Publications() {
                     className={pill}
                   >
                     DOI ↗
+                  </a>
+                )}
+                {p.code && (
+                  <a href={p.code} target="_blank" rel="noreferrer" className={pill}>
+                    Code ↗
+                  </a>
+                )}
+                {p.dataset && (
+                  <a href={p.dataset} target="_blank" rel="noreferrer" className={pill}>
+                    Dataset ↗
                   </a>
                 )}
                 {p.project && (
