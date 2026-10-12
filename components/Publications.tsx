@@ -79,6 +79,14 @@ export function Publications() {
                     {firstAuthors > 1 ? "Co-first author" : "First author"}
                   </span>
                 )}
+                {/* Outlined like the authorship badge but in the quiet ink:
+                    it states a role without borrowing the weight of leading
+                    the paper. */}
+                {p.contribution && (
+                  <span className="label border border-line px-2 py-1 text-muted">
+                    {p.contribution}
+                  </span>
+                )}
                 {p.status && <span className="label text-faint">{p.status}</span>}
               </div>
 

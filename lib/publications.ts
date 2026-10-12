@@ -41,6 +41,12 @@ export type Publication = {
   code?: string;
   /** Released dataset or benchmark */
   dataset?: string;
+  /**
+   * What the site owner did, for a paper whose author line cannot say it. On a
+   * list of hundreds the position carries no information, so the role has to be
+   * stated outright or it is simply not there.
+   */
+  contribution?: string;
   /** Slug of the related project page, if there is one */
   project?: string;
   status?: string;
@@ -89,6 +95,7 @@ export const publications: Publication[] = [
     code: "https://github.com/rdi-berkeley/agents-last-exam",
     dataset: "https://huggingface.co/datasets/agents-last-exam/agents-last-exam",
     status: "Poster",
+    contribution: "Data contribution & testing",
   },
   {
     title: "Placing Nature",
