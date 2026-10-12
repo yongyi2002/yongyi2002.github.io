@@ -95,6 +95,13 @@ export function Publications() {
               </p>
 
               <div className="mt-4 flex flex-wrap gap-2">
+                {/* The paper's own site leads, where there is one: for a
+                    benchmark it is the better front door than the preprint. */}
+                {p.homepage && (
+                  <a href={p.homepage} target="_blank" rel="noreferrer" className={pill}>
+                    Website ↗
+                  </a>
+                )}
                 {p.url && (
                   <a href={p.url} target="_blank" rel="noreferrer" className={pill}>
                     Paper ↗

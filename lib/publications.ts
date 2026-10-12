@@ -26,6 +26,11 @@ export type Publication = {
   /** Direct PDF link — external, or a file served from /public/papers */
   pdf?: string;
   doi?: string;
+  /**
+   * The paper's own site, when it has one. Distinct from `project` below, which
+   * points at a page on this site rather than away from it.
+   */
+  homepage?: string;
   /** Source repository */
   code?: string;
   /** Released dataset or benchmark */
@@ -73,6 +78,7 @@ export const publications: Publication[] = [
     year: "2026",
     url: "https://arxiv.org/abs/2606.05405",
     pdf: "https://arxiv.org/pdf/2606.05405",
+    homepage: "https://agents-last-exam.org/",
     code: "https://github.com/rdi-berkeley/agents-last-exam",
     dataset: "https://huggingface.co/datasets/agents-last-exam/agents-last-exam",
     status: "Poster",
