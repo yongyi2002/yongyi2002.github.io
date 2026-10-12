@@ -19,6 +19,12 @@ export type Publication = {
    * nothing about contribution and is deliberately never shown.
    */
   totalAuthors?: number;
+  /**
+   * The paper is still taking co-authors, so the count above is a floor rather
+   * than a figure. Rendered as a rounded "N+", which stays true as the list
+   * grows instead of going quietly stale.
+   */
+  authorsOpen?: boolean;
   venue: string;
   year: string;
   /** Canonical landing page for the paper */
@@ -73,7 +79,8 @@ export const publications: Publication[] = [
     subtitle:
       "A benchmark of long-horizon, economically valuable real-world tasks for computer-use agents",
     authors: [a("Yiyou Sun"), a("Xinyang Han"), a("Weichen Zhang")],
-    totalAuthors: 262,
+    totalAuthors: 357,
+    authorsOpen: true,
     venue: "NeurIPS 2026 Evaluations and Datasets Track",
     year: "2026",
     url: "https://arxiv.org/abs/2606.05405",

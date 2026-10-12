@@ -11,8 +11,19 @@ import { publications, type Author } from "@/lib/publications";
  *
  * The owner is named either way. Locating them is the one job this line has.
  */
-function Authors({ authors, total }: { authors: Author[]; total?: number }) {
+function Authors({
+  authors,
+  total,
+  open,
+}: {
+  authors: Author[];
+  total?: number;
+  open?: boolean;
+}) {
   const uncounted = total && total > authors.length ? total - authors.length : 0;
+  // An open list is quoted to the fifty below it, so growth never makes the
+  // line wrong — only slightly modest.
+  const counted = open ? `${Math.floor(uncounted / 50) * 50}+` : `${uncounted}`;
   const ownerListed = authors.some((author) => author.name === profile.name);
 
   return (
@@ -32,7 +43,7 @@ function Authors({ authors, total }: { authors: Author[]; total?: number }) {
       ))}
       {uncounted > 0 && (
         <>
-          {` and ${uncounted} others`}
+          {` and ${counted} others`}
           {!ownerListed && (
             <>
               {", including "}
@@ -80,7 +91,7 @@ export function Publications() {
                 )}
               </h3>
 
-              <Authors authors={p.authors} total={p.totalAuthors} />
+              <Authors authors={p.authors} total={p.totalAuthors} open={p.authorsOpen} />
 
               {firstAuthors > 0 && (
                 <p className="mt-1 text-xs text-muted">
